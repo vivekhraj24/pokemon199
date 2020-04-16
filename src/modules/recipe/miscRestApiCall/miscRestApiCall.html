@@ -1,0 +1,33 @@
+<template>
+    <ui-card title="Gotta Catch 'Em All - Search Pokémon powers">
+        <div class="container">
+            <img src="/resources/images/pokemon.png" x="0" y="0" height="150px" width="250px" />
+            <div class="search">
+                <ui-input type="search" onchange={handleSearchKeyChange} label="Type Pokémon Name" value={searchKey}>
+                </ui-input>
+                <p class="margin-vertical-small">
+                    <ui-button label="Search" class="button" onclick={handleSearchClick}></ui-button>
+                </p>
+            </div>
+            <template if:true={pokemons}>
+                <ul style="list-style-type:square;" >
+                    <template for:each={pokemons.abilities} for:item="pokemon">
+                        <li key={pokemon.id} class="search-results">
+                            {pokemon.ability.name}
+                        </li>
+                    </template>
+                </ul>
+            </template>
+            <template if:false={pokemons}>
+                <template if:true={error}>
+                    <recipe-error-panel errors={error}></recipe-error-panel>
+                </template>
+            </template>
+        </div>
+
+        <recipe-view-source source="recipe/" slot="footer">
+            Inspired from René Winkelmeyer LWC OSS recipies&nbsp; </br>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API" target="_blank">Learn about Fetch API</a>.
+        </recipe-view-source>
+    </ui-card>
+</template>
