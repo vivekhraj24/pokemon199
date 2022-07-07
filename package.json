@@ -7,7 +7,7 @@
         "chart.js": "^2.8.0",
         "d3": "^5.9.2",
         "lwc-services": "^1.2.0",
-        "moment": "^2.24.0"
+        "moment": "^2.29.4"
     },
     "description": "Lightning Web Components Recipes Open Source",
     "devDependencies": {
